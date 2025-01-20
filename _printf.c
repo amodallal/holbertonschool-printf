@@ -38,6 +38,7 @@ int _printf(const char *format, ...)
 	else if (format[i] == 's')
 	{
 	char *str = va_arg(args, char *);
+
 	if (!str)
 	str = "(null)";
 

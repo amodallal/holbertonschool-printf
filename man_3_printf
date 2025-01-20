@@ -1,0 +1,79 @@
+.TH _PRINTF 3 "January 20, 2025" "1.0" "Custom Print Function Manual"
+
+.SH NAME
+_printf \- custom implementation of the printf function
+
+.SH SYNOPSIS
+.B #include "main.h"
+.br
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a format.
+
+The
+.I format
+string is composed of zero or more directives. Ordinary characters (not preceded by a '%') are copied directly to the output stream. Conversion specifiers, introduced by a '%' character, specify how subsequent arguments are converted for output.
+
+Supported conversion specifiers:
+.TP
+.B %c
+Prints a single character.
+
+.TP
+.B %s
+Prints a string of characters.
+
+.TP
+.B %d, %i
+Prints a signed decimal integer.
+
+.TP
+.B %%
+Prints a literal '%' character.
+
+.SH RETURN VALUE
+The
+.B _printf
+function returns the total number of characters written, excluding the null byte used to end the output string. If an error occurs, a negative value is returned.
+
+.SH USAGE EXAMPLE
+.nf
+#include "main.h"
+
+int main(void)
+{
+    int count;
+
+    count = _printf("Hello, %s! You are %d years old.\n", "Alice", 25);
+    _printf("Total characters printed: %d\n", count);
+
+    return (0);
+}
+.fi
+
+Output:
+.nf
+Hello, Alice! You are 25 years old.
+Total characters printed: 36
+.fi
+
+.SH BUGS
+This implementation does not handle:
+.TP
+- Flag characters (e.g., '+', ' ', '#').
+.TP
+- Field width.
+.TP
+- Precision.
+.TP
+- Length modifiers (e.g., 'l', 'h').
+
+.SH AUTHOR
+Written by the Holberton School team.
+
+.SH SEE ALSO
+.BR printf (3)
+

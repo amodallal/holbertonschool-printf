@@ -9,9 +9,8 @@
  */
 int _putchar(char c)
 {
-	return write(1, &c, 1);
+	return (write(1, &c, 1));
 }
-
 /**
  * _printf - Produces output according to a format.
  * @format: The format string containing specifiers.
@@ -41,10 +40,11 @@ int _printf(const char *format, ...)
 	char *str = va_arg(args, char *);
 	if (!str)
 	str = "(null)";
+
 	while (*str)
 	count += _putchar(*str++);
 	}
-	else if (format[i] == '%') 
+	else if (format[i] == '%')
 	count += _putchar('%');
 	else
 	{
